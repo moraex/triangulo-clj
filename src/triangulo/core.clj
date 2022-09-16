@@ -46,17 +46,17 @@
   "TODO: Verifica se é um triangulo retangulo, cujos angulos são iguais a 90o.
   O resultado não é exato, dado que cada angulo é arredondado utilizando clojure.math/round."
   [a b c]
-  )
+  (boolean (some #(= 90 %) [(math/round (calc-angulo a b c)) (math/round (calc-angulo b c a)) (math/round (calc-angulo c b a))])))
 
 (defn obtuso?
   "TODO: Verifica se o triangulo é obtuso, tendo algum angulo >90o."
   [a b c]
-  )
+  (boolean (some #(< 90 %) [(math/round (calc-angulo a b c)) (math/round (calc-angulo b c a)) (math/round (calc-angulo c b a))])))
 
 (defn agudo?
   "TODO: Verifica se o triangulo é obtuso, tendo algum angulo >90o."
   [a b c]
-  )
+  (boolean (some #(> 90 %) [(math/round (calc-angulo a b c)) (math/round (calc-angulo b c a)) (math/round (calc-angulo c b a))])))
 
 (defn gerar-dados-completos
   [a b c]
